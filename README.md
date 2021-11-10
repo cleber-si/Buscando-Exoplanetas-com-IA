@@ -8,8 +8,8 @@ Algoritmos para o tratamento de curvas de luz e treinamento de modelos de Machin
 
 * Cleber Silva: [@cleber-si](https://github.com/cleber-si)
 
-**NOTA: **Este projeto usa ou se baseia em algoritmos originalmente escritos por Chris Shallue ([@cshallue](http://github.com/cshallue)), no trabalho
-
+**NOTA:** Este projeto usa ou se baseia em algoritmos originalmente escritos por Chris Shallue ([@cshallue](http://github.com/cshallue)), no trabalho
+ 
 Shallue, C. J., & Vanderburg, A. (2018). Identifying Exoplanets with Deep Learning: A Five-planet Resonant Chain around Kepler-80 and an Eighth Planet around Kepler-90. *The Astronomical Journal*, 155(2), 94.
 
 Texto completo disponível em [*The Astronomical Journal*](http://iopscience.iop.org/article/10.3847/1538-3881/aa9e09/meta).
