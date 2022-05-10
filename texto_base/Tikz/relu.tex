@@ -1,0 +1,24 @@
+\scalebox{1}{
+    \begin{tikzpicture}
+        \begin{axis}[
+            xmin=-2.2, xmax=2.2,
+            ymin=-.5, ymax=2.5,
+            axis lines=center,
+            axis on top=false,
+            domain=-2.5:2.5,
+            ylabel=$g(z)$,
+            xlabel=$z$,
+            ]
+        
+            %\addplot [mark=none,draw=red,ultra thick] {x};
+            \node [right, red] at (axis cs: -1.5,2.2) {ReLU};
+            \node [right, red] at (axis cs: -2,1.7) {$g(z) = z\ \textrm{se}\ z>0$};
+            \node [right, red] at (axis cs: -2,1.4) {$g(z) = 0\ \textrm{se}\ z \leq 0$};
+            
+            
+            %% Add the asymptotes
+            \draw [red, ultra thick] (axis cs:-2.5,0)-- (axis cs:0,0);
+            \draw [red, ultra thick] (axis cs:0,0)-- (axis cs:2,2);
+        \end{axis}
+    \end{tikzpicture}
+}

@@ -1,0 +1,88 @@
+\begin{figure}[H]
+    \centering
+    \caption{Fronteiras de decisão geradas na multiclassificação\\ da árvore de decisão do exemplo.}
+    \label{fig:arvore_fronteira_mult}
+    \scalebox{0.9}{
+        \begin{tikzpicture}
+            \filldraw[color=red!20] (0,0) rectangle (10,4);
+            \filldraw[color=orange!20] (4.7,4) rectangle (10,6);
+            \filldraw[color=ForestGreen!20] (0,4) rectangle (4.7,6);
+        
+            \foreach \i in {1,...,5}{
+                \draw (1.7+\i/4,2.69) node[cross, rotate=10, very thick, color=red] {};
+                \draw (.2+\i/2.3,2.53) node[cross, rotate=10, very thick, color=red] {};
+                \draw (\i/2,2.25) node[cross, rotate=10, very thick, color=red] {};
+                \draw (\i/5,2.1) node[cross, rotate=10, very thick, color=red] {};
+                
+                \draw (.2+\i/2.3,2) node[cross, rotate=10, very thick, color=red] {};
+                \draw (.7+\i/4,1.5) node[cross, rotate=10, very thick, color=red] {};
+                \draw (1+\i/3,1.2) node[cross, rotate=10, very thick, color=red] {};
+                \draw (.52+\i/2,0.8) node[cross, rotate=10, very thick, color=red] {};
+                \draw (\i/3.5,0.5) node[cross, rotate=10, very thick, color=red] {};
+                \draw (\i/2,0.2) node[cross, rotate=10, very thick, color=red] {};
+            }
+            
+            \foreach \i in {1,...,5}{
+                \filldraw[color=orange!60] (5+2.2+\i/2.3,7-4+1.5) node[minimum size = .1cm, draw, fill=orange!60, rotate=45] {};
+                \filldraw[color=orange!60] (5+1.7+\i/4,7-4+1.5) node[minimum size = .1cm, draw, fill=orange!60, rotate=45] {};
+                \filldraw[color=orange!60] (5+1+\i/3,7-4+1.2) node[minimum size = .1cm, draw, fill=orange!60, rotate=45] {};
+                \filldraw[color=orange!60] (5+2+\i/2,8-4+0.9) node[minimum size = .1cm, draw, fill=orange!60, rotate=45] {};
+                
+                \filldraw[color=orange!60] (4.5+\i,8-4+0.9) node[minimum size = .1cm, draw, fill=orange!60, rotate=45] {};
+                \filldraw[color=orange!60] (5+\i/2,8-4+0.5) node[minimum size = .1cm, draw, fill=orange!60, rotate=45] {};
+                \filldraw[color=orange!60] (5+1.7+\i/4,7-4+2.69) node[minimum size = .1cm, draw, fill=orange!60, rotate=45] {};
+                \filldraw[color=orange!60] (5+2.2+\i/2.3,7-4+2.53) node[minimum size = .1cm, draw, fill=orange!60, rotate=45] {};
+                \filldraw[color=orange!60] (2.95+\i/2.5,7-4+2.25) node[minimum size = .1cm, draw, fill=orange!60, rotate=45] {};
+                \filldraw[color=orange!60] (4.3+\i,7-4+2.1) node[minimum size = .1cm, draw, fill=orange!60, rotate=45] {};
+            }
+            
+            \foreach \i in {1,...,5}{
+                \filldraw[color=ForestGreen!60] (2.2+\i/2.3,7-4+2) circle (3pt);
+                \filldraw[color=ForestGreen!60] (1.7+\i/4,7-4+1.5) circle (3pt);
+                \filldraw[color=ForestGreen!60] (1+\i/3,7-4+1.2) circle (3pt);
+                \filldraw[color=ForestGreen!60] (2+\i/2,8-4+0.95) circle (3pt);
+                \filldraw[color=ForestGreen!60] (3+\i/2,8-4+0.7) circle (3pt);
+                \filldraw[color=ForestGreen!60] (\i/2,8-4+0.5) circle (3pt);
+                
+                \filldraw[color=ForestGreen!60] (1.7+\i/4,7-4+2.69) circle (3pt);
+                \filldraw[color=ForestGreen!60] (2.2+\i/2.3,7-4+2.53) circle (3pt);
+                \filldraw[color=ForestGreen!60] (\i/2,7-4+2.25) circle (3pt);
+                \filldraw[color=ForestGreen!60] (\i/1.5,7-4+2.1) circle (3pt);
+            }
+            
+            % Fronteiras
+            \draw [-, color=black, ultra thick] (0,4)--(10,4);
+            \draw [-, dashed, color=black, ultra thick] (4.7,4)--(4.7,6);
+            
+            % Eixos
+            \draw [-, color=black] (0,0)--(10,0);
+            \draw [-, color=black] (0,6)--(10,6);
+            
+            \draw [-, color=black] (0,0)--(0,3);
+            \draw [-, dashed, color=black] (0,3)--(0,4);
+            \draw [-, color=black] (0,4)--(0,6);
+            
+            \draw [-, color=black] (10,0)--(10,3);
+            \draw [-, dashed, color=black] (10,3)--(10,4);
+            \draw [-, color=black] (10,4)--(10,6);
+            
+            \foreach \i in {0, 0.1, 0.2, 0.3}{
+                \draw [-, color=black] (-0.1,\i*10)--(0,\i*10) node[left, scale = 0.9]{$\i$};
+            }
+            
+            \foreach \i in {0.8, 0.9, 1}{
+                \draw [-, color=black] (-0.1,\i*10-4)--(0,\i*10-4) node[left, scale = 0.9]{$\i$};
+            }
+            
+            \foreach \i in {0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1}{
+               \draw [-, color=black] (\i*10,-0.1)--(\i*10,0) node[below, scale = 0.9]{$\i$}; 
+            }
+            
+            %\path
+            \node[scale = 0.9] at (5,-0.6) {Probabilidade de Ser Estrela Binária};
+            \node[scale = 0.9, rotate = 90] at (-0.8,3) {Relevância da Queda no Fluxo};
+            
+        \end{tikzpicture}
+    }
+    \caption*{\small Fonte: Elaboração própria.}
+\end{figure}

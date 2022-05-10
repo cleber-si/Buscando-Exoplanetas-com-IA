@@ -1,0 +1,121 @@
+\begin{figure}[H]
+    \centering
+    \caption{Exemplo de rede neural.}
+    \label{fig:rede1}
+    \begin{tikzpicture}
+        % Input layer neurons'number
+        \newcommand{\inputnum}{3} 
+        % Hidden layer 1 neurons'number
+        \newcommand{\hiddennumUm}{3}
+        % Hidden layer 1 neurons'number
+        \newcommand{\hiddennumDois}{3}
+        % Output layer neurons'number
+        \newcommand{\outputnum}{2} 
+        
+        % Input Layer
+        \foreach \i in {1,...,\inputnum}
+        {
+        	\node[circle, ultra thick, draw,
+        		minimum size = 6mm,
+        		color=blue,
+        		fill=black!10] (Input-\i) at (0,-\i*1.5) {\textcolor{black}{$a_{\i}^{(1)}$}};
+        }
+        
+        % Viés
+        \node[circle, ultra thick, draw,
+        		minimum size = 6mm,
+        		color=red,
+        		fill=black!10,
+        		yshift=(\hiddennumUm-\inputnum)*5 mm
+        	] (Input-0) at (0,0) {\textcolor{black}{$a_{0}^{(1)}$}};
+        
+        % Hidden Layer 1
+        \foreach \i in {1,...,\hiddennumUm}
+        {
+        	\node[circle, ultra thick, draw,
+        		minimum size = 6mm,
+        		color=black,
+        		fill=black!10,
+        		yshift=(\hiddennumUm-\inputnum)*5 mm
+        	] (Hidden-\i) at (2.5,-\i*1.5) {$a_{\i}^{(2)}$};
+        }
+        
+        % Viés
+        \node[circle, ultra thick, draw,
+        		minimum size = 6mm,
+        		color=red,
+        		fill=black!10,
+        		yshift=(\hiddennumUm-\inputnum)*5 mm
+        	] (Hidden-0) at (2.5,0) {\textcolor{black}{$a_{0}^{(2)}$}};
+        	
+        % Hidden Layer 2
+        \foreach \i in {1,...,\hiddennumDois}
+        {
+        	\node[circle, ultra thick, draw,
+        		minimum size = 6mm,
+        		color=black,
+        		fill=black!10,
+        		yshift=(\hiddennumUm-\inputnum)*5 mm
+        	] (Hidden2-\i) at (5,-\i*1.5) {$a_{\i}^{(3)}$};
+        }
+        
+        % Viés
+        \node[circle, ultra thick, draw,
+        		minimum size = 6mm,
+        		color=red,
+        		fill=black!10,
+        		yshift=(\hiddennumUm-\inputnum)*5 mm
+        	] (Hidden2-0) at (5,0) {\textcolor{black}{$a_{0}^{(3)}$}};
+        
+        % Output Layer
+        \foreach \i in {1,...,\outputnum}
+        {
+        	\node[circle, ultra thick, draw, 
+        		minimum size = 6mm,
+        		color=orange,
+        		fill=black!10,
+        		yshift=(\outputnum-\inputnum)*5 mm
+        	] (Output-\i) at (7.5,-\i*1.7) {\textcolor{black}{$a_{\i}^{(4)}$}};
+        }
+        
+        % Connect neurons In-Hidden
+        \foreach \i in {0,...,\inputnum}
+        {
+        	\foreach \j in {1,...,\hiddennumUm}
+        	{
+        		\draw[-latex, shorten >=1pt] (Input-\i) -- (Hidden-\j);	
+        	}
+        }
+        
+        % Connect neurons Hidden-Hidden2
+        \foreach \i in {0,...,\hiddennumUm}
+        {
+        	\foreach \j in {1,...,\hiddennumUm}
+        	{
+        		\draw[-latex, shorten >=1pt] (Hidden-\i) -- (Hidden2-\j);
+        	}
+        }
+        
+        % Connect neurons Hidden2-Out
+        \foreach \i in {0,...,\hiddennumUm}
+        {
+        	\foreach \j in {1,...,\outputnum}
+        	{
+        		\draw[-latex, shorten >=1pt] (Hidden2-\i) -- (Output-\j);
+        	}
+        }
+        
+        % Outputs
+        \foreach \i in {1,...,\outputnum}
+        {            
+        	\draw[-latex, shorten >=1pt] (Output-\i) -- ++(1.5,0)
+        		node[right]{\textcolor{black}{$\left( h_{\bm{\Theta}}(\bm{x}) \right)_{\i}$}};
+        }
+        
+        \node[scale=0.9] at (0,-5.5) {Camada 1};
+        \node[scale=0.9] at (2.5,-5.5) {Camada 2};
+        \node[scale=0.9] at (5,-5.5) {Camada 3};
+        \node[scale=0.9] at (7.5,-5.5) {Camada 4};
+    \end{tikzpicture}
+    \caption*{\small Fonte: Elaboração própria.}
+\end{figure}

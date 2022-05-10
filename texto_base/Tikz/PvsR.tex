@@ -1,0 +1,59 @@
+\begin{figure}[H]
+    \centering
+    \caption{Exemplo de troca entre Precisão (P) e Recall (R) para diferentes limites da pontuação da função de decisão.}
+    \label{fig:PvsR}
+    \begin{tikzpicture}
+        \foreach \i in {0,...,7}
+        {
+            \draw (.4+\i/2,0) node[cross, rotate=10, ultra thick, color=red, scale=1.5] {};
+        }
+        
+        \foreach \i in {9,...,15}
+        {
+            \filldraw[color=ForestGreen!60, scale=1.5] (1.4+\i/3,0) circle (3pt);
+        }
+        
+        \foreach \i in {2.9, 3.5, 4.1}
+        {
+            \filldraw[color=ForestGreen!60, scale=1.5] (\i,0) circle (3pt);
+        }
+        
+        \foreach \i in {4.8, 5.7}
+        {
+            \draw (\i,0) node[cross, rotate=10, ultra thick, color=red, scale=1.5] {};
+        }
+        
+        % Eixo
+        \draw (0,-0.3)--(10,-0.3);
+        \draw (0,-0.3)--(0,0);
+        \draw (10,-0.3)--(10,0);
+        
+        \node[scale=0.9] at (0,-0.5) {mín.};
+        \node[scale=0.9] at (10,-0.5) {máx.};
+        
+        \node[scale=0.9] at (5,-0.6) {Pontuações da Função de Decisão};
+        
+        % Limites
+        \draw [dashed] (4.15,-.3)--(4.15,2.4);
+        \draw [-latex, dashed] (4.15,2.4)--(5,2.4);
+        
+        \draw [dashed] (5.05,-.3)--(5.05,1.8);
+        \draw [-latex, dashed] (5.05,1.8)--(5.7,1.8);
+        
+        \draw [dashed] (5.44,-.3)--(5.44,1.2);
+        \draw [-latex, dashed] (5.44,1.2)--(6,1.2);
+        
+        \draw [dashed] (7.35,-.3)--(7.35,.6);
+        \draw [-latex, dashed] (7.35,.6)--(8,.6);
+        
+        % Descrições
+        \node[right, scale=0.9] at (5,2.4) {P: 10/12 = 83,33\% $|$ R: 10/10 = 100\%};
+        
+        \node[right, scale=0.9] at (5.7,1.8) {P: 9/10 = 90\% $|$ R: 9/10 = 90\%};
+        
+        \node[right, scale=0.9] at (6,1.2) {P: 8/9 = 88,89\% $|$ R: 8/10 = 80\%};
+        
+        \node[right, scale=0.9] at (8,.6) {P: 5/5 = 100\% $|$ R: 5/10 = 50\%};
+    \end{tikzpicture}
+    \caption*{\small Fonte: Elaboração própria.}
+\end{figure}

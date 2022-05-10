@@ -1,0 +1,14 @@
+% Dentre outros vários pacotes e configurações, as usadas diretamente nas figuras Tikz são as que seguem.
+
+%------------ Tikz -------------%
+\usepackage{tikz}
+\usepackage{ifthen}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+\usetikzlibrary{arrows, arrows.meta, shapes, shapes.misc, positioning, shadows, trees, calc, shapes, backgrounds}
+
+\tikzset{cross/.style={cross out, draw=black, minimum size=6pt, inner sep=0pt, outer sep=0pt},
+%default radius will be 1pt. 
+cross/.default={2pt}}
+%-----------------------------------------------%

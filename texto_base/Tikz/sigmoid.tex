@@ -1,0 +1,19 @@
+\begin{figure}[H]
+    \centering
+    \caption{Gráfico da função logística.}
+    \label{fig:sigmoid}
+    \begin{tikzpicture}[yscale=4,nodes={scale=.8}]
+        \draw[gray, dashed] (-5.5,1)--(5.5,1);
+        \draw[-latex] (0,-.1)--(0,1.2) node[left, scale=1.5]{$g(z)$};
+        \draw[-latex] (-5.5,0)--(5.5,0) node[right, scale=1.5]{$z$};
+        \draw[smooth,thick,blue] plot[domain=-5.5:5.5] (\x,{1/(1+exp{-\x})});
+        \path
+        (0,0) node[below left]{0}
+        (0,.5) node[above left]{$0.5$}
+        (0,1) node[above right]{$1$};
+        \foreach \i in {-5, -4, -3, -2, -1, 1, 2, 3, 4, 5}
+        \draw (\i,.02)--(\i,-.02) node[below]{$\i$};
+    \end{tikzpicture}
+    \caption*{\small Fonte: Elaboração própria.}
+\end{figure}
+
