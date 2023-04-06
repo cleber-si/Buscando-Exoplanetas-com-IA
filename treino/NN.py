@@ -92,7 +92,7 @@ tuner = kt.Hyperband(modelo_builder,
                     project_name = 'teste_do_kt')
 
 # Interrompe o treino com base no custo relativo à validação
-stop_early = tf.keras.callbacks.EarlyStopping(monitor='vall_loss', patience=5)
+stop_early = tf.keras.callbacks.EarlyStopping(monitor='val_loss', patience=5)
 
 
 # Testa todas as combinações de hiperparâmetros dos valores indicados para análise
